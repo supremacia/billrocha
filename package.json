@@ -1,0 +1,51 @@
+{
+  "name": "billrocha",
+  "version": "1.0.0",
+  "description": "Personal identity",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedra/billrocha.git"
+  },
+  "keywords": [
+    "billrocha",
+    "netlify",
+    "personal",
+    "identity",
+    "site",
+    "portifolio",
+    "release"
+  ],
+  "author": "paulorocha@outlook.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pedra/billrocha/issues"
+  },
+  "homepage": "https://github.com/pedra/billrocha#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/polyfill": "^7.7.0",
+    "@babel/preset-env": "^7.7.5",
+    "@babel/register": "^7.7.4",
+    "del": "^4.1.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-header": "^2.0.9",
+    "gulp-html-minifier2": "^1.1.11",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-javascript-obfuscator": "^1.1.6",
+    "gulp-remove-logging": "^1.2.0",
+    "gulp-uglify": "^3.0.2",
+    "streamqueue": "^1.1.2",
+    "uglify-es": "^3.3.9",
+    "yargs": "^13.3.0"
+  }
+}
