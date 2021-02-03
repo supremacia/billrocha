@@ -58,7 +58,17 @@
 
         .nav {
             margin: 0 0 5px 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            max-width: 286px;
+            min-width: 240px;
+            width: 50%;
+            margin: auto;
+            flex-flow: wrap;
         }
+
 
         .nav a {
             display: inline-flex;
@@ -72,6 +82,12 @@
             transition: 1.2s;
             border-radius: 50%;
             cursor: pointer
+        }
+
+        .nav.topnav {
+            display: block;
+            width: 100%;
+            max-width: unset;
         }
 
         .nav.topnav a {
@@ -239,8 +255,6 @@
                         <i class="fab fa-pinterest-p"></i></a>
                     <a href="https://gab.com/billrocha" target="new" title="Gab">
                         <i class="far fa-lightbulb"></i></a>
-                </div>
-                <div class="nav">
                     <a href="https://www.behance.net/paulorbrocha" target="new" title="Behance">
                         <i class="fab fa-behance"></i></a>
                     <a href="https://www.linkedin.com/in/ahcor" target="new" title="LinkedIn">
