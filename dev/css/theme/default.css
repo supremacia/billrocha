@@ -1,0 +1,72 @@
+:root {
+    /* PAGE */
+    --text: #222222;
+    --bg: #F4F4F4;
+
+    /* PAGE DARK */
+    --text-dark: #F1F1F1;
+    --bg-dark: #681010;
+
+    /* Basic COLORs */
+    --primary: #B71C1C;
+    --secondary: #0060C1;
+    --tertiary: #FF8000;
+    --hover: #889900;
+
+    /* HEADER/FOOTER */
+    --header-bg: #009688;
+    --header-bg-dark: #00756a;
+    --header-color: #ffffff;
+
+    /* WHITE SCALE */
+    --white: #FFFFFF;
+    --white-1: #F9F9F9;
+    --white-2: #F4F4F4;
+    --white-3: #F1F1F1;
+    --white-4: #E8E8E8;
+    --white-5: #DDDDDD;
+    --white-6: #CCCCCC;
+    --white-7: #BBBBBB;
+    --white-8: #AAAAAA;
+    --white-9: #999999;
+
+
+    /* BLACK SCALE */
+    --black: #000000;
+    --black-1: #222222;
+    --black-2: #261414;
+    --black-3: #333333;
+    --black-4: #444444;
+    --black-5: #570505;
+    --black-6: #666666;
+    --black-7: #777777;
+    --black-8: #888888;
+
+    /* COMMON */
+    --red: #B71C1C;
+    --red-light: #c62828;
+    --red-dark: #681010;
+    --blue: #0060C1;
+    --blue-light: #534caf;
+    --blue-dark: #040086;
+    --green: #889900;
+    --yellow: #E6FF00;
+    --orange: #FF8000;
+
+    /* ELEVATION */
+    --elevation-1: 0 0 2px rgba(0, 0, 0, 0.2);
+    --elevation-2: 0 3px 6px rgba(0, 0, 0, 0.2);
+    --elevation-3: 0 6px 12px rgba(0, 0, 0, .2);
+    --elevation-4: 0 10px 20px rgba(0, 0, 0, .4);
+    --elevation-5: 0 10px 30px rgba(0, 0, 0, .4);
+    --elevation-6: 0 20px 50px rgba(0, 0, 0, .2);
+    --elevation-1a: 0 5px 15px rgba(0, 0, 0, .1);
+
+    /* RADIUS */
+    --radius: 4px;
+    --radius-1: 8px;
+    --radius-2: 1rem;
+    --radius-3: 1.5rem;
+    --radius-4: 2rem;
+    --radius-5: 50%;
+}

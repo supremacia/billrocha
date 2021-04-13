@@ -27,7 +27,7 @@ import htmlmin from 'gulp-html-minifier2'
 import concat from 'gulp-concat'
 import header from 'gulp-header'
 import yargs from 'yargs'
-//import javascriptObfuscator from 'gulp-javascript-obfuscator'
+import javascriptObfuscator from 'gulp-javascript-obfuscator'
 import uglifyes from 'uglify-es'
 import composer from 'gulp-uglify/composer'
 import path from 'path'
@@ -66,19 +66,68 @@ const html_compress = (files, output, destination = false) =>
 		)
 		.pipe(dest(destination ? destination : 'public'))
 
+// ---------------------------------------------------------------------------------- [ HTML ]
 const html = () => {
 	return html_compress(
 		[
-			'html/header.html',
-			'css/style.min.css',
-			'html/body.html',
-			'js/main.min.js',
-			'html/footer.html'
+			'dev/html/inc/header.html',
+			'dev/html/home.html',
+			'dev/html/inc/footer.html'
 		],
-		'index.html',
+		'dev/index.html',
 		'/'
 	)
 }
+
+// ---------------------------------------------------------------------------------- [ STYLE ]
+const style = () =>
+	streamqueue(
+		{ objectMode: true },
+		src([
+			'dev/css/part/font.css',
+			'dev/css/part/reset.css',
+			'dev/css/theme/default.css',
+
+			'dev/css/part/page.css',
+			'dev/css/part/menu.css'
+		])
+	)
+		.pipe(concat('style.css'))
+		.pipe(gulpif(PRO, minifyCSS({ level: { 1: { specialComments: 0 } } })))
+		.pipe(dest('dev/css'))
+
+// ---------------------------------------------------------------------------------- [ JS ]
+const js = cb =>
+	src([
+		'dev/js/part/event.js',
+		'dev/js/part/page.js',
+		'dev/js/part/menu.js',
+		'dev/js/part/sw.js',
+
+		'dev/js/config.js',
+		'dev/js/main.js'
+	])
+		.pipe(gulpif(BABEL, babel()))
+		.pipe(concat('script.js'))
+		.pipe(gulpif(PRO, uglify()))
+		.pipe(gulpif(OBF, javascriptObfuscator({ compact: true, sourceMap: false })))
+		.pipe(dest('dev/js'))
+
+
+// ---------------------------------------------------------------------------------- [ SERVICE WORK ]
+const sw = () => {
+	let VERSION = 'const VERSION="' + new Date().getTime() + '";\r'
+
+	return src(['dev/js/sw.js'])
+		.pipe(gulpif(BABEL, babel()))
+		.pipe(concat('sw.js'))
+		.pipe(header(VERSION))
+		.pipe(gulpif(PRO, uglify()))
+		.pipe(gulpif(OBF, javascriptObfuscator({ compact: true, sourceMap: false })))
+		.pipe(dest('dev'))
+}
+
+
 
 const vendor = () =>
 	src(['node_modules/socket.io-client/dist/socket.io.js'])
@@ -87,6 +136,7 @@ const vendor = () =>
 
 /* TASKs ----------------------------------------------------------- [TASKs]*/
 exports.default = html
+exports.all = parallel(html, style, js, sw)
 exports.vendor = vendor
 
 
